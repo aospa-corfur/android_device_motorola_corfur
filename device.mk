@@ -370,6 +370,11 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 30
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
 
 # Wifi
+PRODUCT_PACKAGES += \
+    firmware_wlanmdsp.otaupdate_symlink \
+    firmware_wlan_mac.bin_symlink \
+    firmware_WCNSS_qcom_cfg.ini_symlink
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
