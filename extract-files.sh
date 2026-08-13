@@ -58,6 +58,10 @@ function blob_fixup() {
         system_ext/etc/permissions/moto-ims-ext.xml|system_ext/etc/permissions/moto-telephony.xml)
             sed -i "s#/system/#/system_ext/#" "${2}"
             ;;
+
+        vendor/etc/media_codecs.xml|vendor/etc/media_codecs_blair.xml|vendor/etc/media_codecs_holi.xml)
+            sed -Ei "/media_codecs_(google_audio|google_telephony|vendor_audio)/d" "${2}"
+            ;;
     esac
 }
 
