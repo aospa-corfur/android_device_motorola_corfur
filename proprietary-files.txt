@@ -1096,10 +1096,6 @@ vendor/etc/thermal-engine-corfur.conf
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 
-# VPP
-vendor/lib64/vendor.qti.hardware.vpp@2.0.so
-vendor/lib/vendor.qti.hardware.vpp@2.0.so
-
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
