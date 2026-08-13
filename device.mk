@@ -17,9 +17,8 @@ PRODUCT_PACKAGES += \
     update_engine_client \
     update_engine_sideload \
     update_verifier \
-    android.hardware.boot@1.2-impl-qti \
-    android.hardware.boot@1.2-impl-qti.recovery \
-    android.hardware.boot@1.2-service \
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery \
     checkpoint_gc \
     otapreopt_script
 
