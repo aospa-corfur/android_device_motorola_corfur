@@ -1,4 +1,0 @@
-runtime_resource_overlay {
-    name: "TelephonyResCorfur",
-    product_specific: true,
-}

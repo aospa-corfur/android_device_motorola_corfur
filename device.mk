@@ -91,14 +91,6 @@ PRODUCT_PACKAGES += \
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# Data Services
-$(call inherit-product, vendor/qcom/opensource/dataservices/dataservices_vendor_product.mk)
-
-SOONG_CONFIG_NAMESPACES += rmnetctl
-SOONG_CONFIG_rmnetctl += \
-    old_rmnet_data
-SOONG_CONFIG_rmnetctl_old_rmnet_data := true
-
 # Display
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
@@ -186,15 +178,6 @@ PRODUCT_PACKAGES += \
     init.vendor.st21nfc.rc \
     ueventd.corfur.rc
 
-# IPACM
-$(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr-legacy/ipacm_vendor_product.mk)
-
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml \
-    libipanat \
-    liboffloadhal
-
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := false
 KERNEL_MODULES_INSTALL := dlkm
@@ -246,7 +229,6 @@ PRODUCT_PACKAGES += \
     SettingsProviderResCorfur \
     SettingsResCorfur \
     SystemUIResCorfur \
-    TelephonyResCorfur \
     WifiResTargetDubai
 
 # Partitions - Dynamic
@@ -256,10 +238,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Perf
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/perf/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
-
-# QMI
-PRODUCT_PACKAGES += \
-    libjson
 
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS += \
@@ -274,46 +252,15 @@ TARGET_COMMON_QTI_COMPONENTS += \
     overlay \
     perf \
     qseecomd \
+    telephony \
     usb \
     vibrator \
     wfd \
     wlan
 
 # RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.5 \
-    android.hardware.radio@1.5.vendor \
-    android.hardware.radio@1.6 \
-    android.hardware.radio@1.6.vendor \
-    android.hardware.radio.config@1.2 \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.radio.config@1.3 \
-    android.hardware.radio.config@1.3.vendor \
-    android.hardware.radio.deprecated@1.0 \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.wifi.hostapd@1.0.vendor \
-    android.system.net.netd@1.1 \
-    android.system.net.netd@1.1.vendor \
-    libprotobuf-cpp-full \
-    librmnetctl \
-    libxml2 \
-    vendor.qti.hardware.systemhelperaidl-V1-ndk \
-    vendor.qti.hardware.systemhelperaidl-V1-ndk.vendor
-
-PRODUCT_PACKAGES += \
-    android.hardware.radio.config-V1-ndk.vendor \
-    android.hardware.radio.data-V1-ndk.vendor \
-    android.hardware.radio.messaging-V1-ndk.vendor \
-    android.hardware.radio.modem-V1-ndk.vendor \
-    android.hardware.radio.network-V1-ndk.vendor \
-    android.hardware.radio.sim-V1-ndk.vendor \
-    android.hardware.radio.voice-V1-ndk.vendor \
-    android.hardware.radio-V1-ndk.vendor
 
 # Screen
 TARGET_SCREEN_DENSITY := 420
@@ -336,24 +283,10 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH) \
-    vendor/qcom/opensource/data-ipa-cfg-mgr-legacy
+    $(DEVICE_PATH)
 
 # Storage
 PRODUCT_CHARACTERISTICS := nosdcard
-
-# System Helper
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.systemhelper@1.0.vendor
-
-# Telephony
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/telephony/telephony_system-ext_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml
 
 # Thermal
 PRODUCT_PACKAGES += \
