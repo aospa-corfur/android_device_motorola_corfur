@@ -53,7 +53,7 @@ vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 vendor/lib/hw/com.dsi.ant@1.0-impl.so
 
 # Audio (Configs)
-etc/audio_effects.conf:vendor/etc/audio_effects.conf
+system/etc/audio_effects.conf:vendor/etc/audio_effects.conf
 vendor/etc/a2dp_audio_policy_configuration.xml
 vendor/etc/audio_effects.xml
 vendor/etc/audio_ext_spkr.conf
