@@ -60,7 +60,7 @@ function blob_fixup() {
             ;;
 
         vendor/etc/media_codecs.xml|vendor/etc/media_codecs_blair.xml|vendor/etc/media_codecs_holi.xml)
-            sed -Ei "/media_codecs_(google_audio|google_telephony|vendor_audio)/d" "${2}"
+            sed -Ei "/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d" "${2}"
             ;;
     esac
 }
