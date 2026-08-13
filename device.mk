@@ -197,6 +197,7 @@ PRODUCT_PACKAGES += \
     liboffloadhal
 
 # Kernel
+PRODUCT_ENABLE_UFFD_GC := false
 KERNEL_MODULES_INSTALL := dlkm
 KERNEL_MODULES_OUT := $(OUT_DIR)/target/product/corfur/$(KERNEL_MODULES_INSTALL)/lib/modules
 
